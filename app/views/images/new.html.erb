@@ -1,0 +1,10 @@
+<%= form_with model: @image do |form| %>
+  <div>
+    <%= form.label :small_image, style: "display: block" %>
+    <%= form.file_field :small_image, accept: "image/*" %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

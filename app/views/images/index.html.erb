@@ -1,0 +1,10 @@
+<h1>Images#index</h1>
+<p>Find me in app/views/images/index.html.erb</p>
+
+<%= link_to "Bild hochladen", new_image_path %>
+
+<div>
+  <% @images.each do |i| %>
+    <%= link_to i.small_image.filename.to_s, image_path(i.id) %>
+  <% end %>
+</div>
