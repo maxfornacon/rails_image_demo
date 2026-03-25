@@ -1,10 +1,29 @@
-<%= form_with model: @image do |form| %>
-  <div>
-    <%= form.label :small_image, style: "display: block" %>
-    <%= form.file_field :small_image, accept: "image/*" %>
+<%= form_with model: @image, class: "max-w-xl mx-auto" do |form| %>
+
+  <!-- Upload Area -->
+  <div class="mb-6">
+    <label class="block w-full cursor-pointer">
+
+      <div class="flex flex-col items-center justify-center border-2 border-dashed border-gray-300 rounded-xl p-10 text-center hover:border-blue-500 transition">
+        <p class="text-lg font-medium text-gray-700">
+          Click to upload an image
+        </p>
+        <p class="text-sm text-gray-500 mt-1">
+          or drag and drop
+        </p>
+      </div>
+
+      <%= form.file_field :small_image,
+                          accept: "image/*",
+                          class: "hidden" %>
+
+    </label>
   </div>
 
-  <div>
-    <%= form.submit %>
+  <!-- Submit Button -->
+  <div class="text-center">
+    <%= form.submit "Upload Image",
+                    class: "bg-blue-600 text-white px-6 py-3 rounded-lg font-medium hover:bg-blue-700 transition" %>
   </div>
+
 <% end %>

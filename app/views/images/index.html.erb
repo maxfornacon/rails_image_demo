@@ -1,10 +1,28 @@
-<h1>Images#index</h1>
-<p>Find me in app/views/images/index.html.erb</p>
+<% content_for :title, "Images" %>
 
-<%= link_to "Bild hochladen", new_image_path %>
+<div class="text-center mb-10">
+  <h2 class="text-2xl font-semibold mb-2">
+    Tolle Pictrs Bewerbungs Demo App
+  </h2>
+  <p class="text-gray-600 mb-6">
+    Freundlicher Begrüßungstext
+  </p>
 
-<div>
-  <% @images.each do |i| %>
-    <%= link_to i.small_image.filename.to_s, image_path(i.id) %>
-  <% end %>
+  <%= link_to "Bild hochladen", new_image_path,
+              class: "inline-block bg-blue-600 text-white px-6 py-3 rounded-lg font-medium hover:bg-blue-700 transition" %>
+</div>
+
+<div class="flex justify-center">
+  <div class="flex flex-wrap justify-center gap-4 max-w-5xl">
+    <% @images.each do |i| %>
+      <%= link_to image_path(i) do %>
+        <div class="w-32 sm:w-40 md:w-48 aspect-square overflow-hidden rounded-xl">
+          <%= image_tag i.small_image.variant(
+            resize_to_limit: [300, 300],
+            format: :webp,
+            ), class: "w-full h-full object-cover hover:scale-105 transition" %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
 </div>
