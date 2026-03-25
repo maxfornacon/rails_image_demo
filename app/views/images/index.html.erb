@@ -5,7 +5,11 @@
     Tolle Pictrs Bewerbungs Demo App
   </h2>
   <p class="text-gray-600 mb-6">
-    Freundlicher Begrüßungstext
+    Hallo zusammen, <br>
+    hier könnt ihr ein Bild hochladen und es euch sogar auch in schwarzweiß anschauen!
+    <br>
+    <br>
+    Viel Spaß beim Ausprobieren! :)
   </p>
 
   <%= link_to "Bild hochladen", new_image_path,
@@ -13,6 +17,7 @@
 </div>
 
 <div class="flex justify-center">
+
   <div class="flex flex-wrap justify-center gap-4 max-w-5xl">
     <% @images.each do |i| %>
       <%= link_to image_path(i) do %>
