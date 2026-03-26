@@ -6,7 +6,8 @@
 
       <div style="flex: 0 0 300px;">
         <%= image_tag @image.small_image.variant(
-          resize_to_limit: [300, 300],
+          resize_to_limit: [300, 300, sharpen: false],
+          format: :webp,
         ), class: "rounded", style: "width: 100%; height: auto;" %>
       </div>
 
@@ -29,7 +30,7 @@
 
       <div style="flex: 0 0 300px;">
         <%= image_tag @image.small_image.variant(
-          resize_to_limit: [300, 300],
+          resize_to_limit: [300, 300, sharpen: false],
           format: :webp,
           colourspace: "b-w",
         ), class: "rounded", style: "width: 100%; height: auto;" %>
