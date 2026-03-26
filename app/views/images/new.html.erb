@@ -1,4 +1,4 @@
-<%= form_with model: @image, class: "max-w-xl mx-auto" do |form| %>
+<%= form_with model: @image, data: { controller: "file-preview" }, class: "max-w-xl mx-auto" do |form| %>
 
   <!-- Upload Area -->
   <div class="mb-6">
@@ -6,23 +6,28 @@
 
       <div class="flex flex-col items-center justify-center border-2 border-dashed border-gray-300 rounded-xl p-10 text-center hover:border-blue-500 transition">
         <p class="text-lg font-medium text-gray-700">
-          Click to upload an image
-        </p>
-        <p class="text-sm text-gray-500 mt-1">
-          or drag and drop
+          Hier klicken, um ein Bild auszuwählen
         </p>
       </div>
 
+      <p class="mt-4 text-sm text-blue-600" data-file-preview-target="filename">
+        Kein Bild ausgewählt
+      </p>
+
       <%= form.file_field :small_image,
                           accept: "image/*",
-                          class: "hidden" %>
+                          class: "hidden",
+                          data: {
+                            file_preview_target: "input",
+                            action: "change->file-preview#update"
+                          }%>
 
     </label>
   </div>
 
   <!-- Submit Button -->
   <div class="text-center">
-    <%= form.submit "Upload Image",
+    <%= form.submit "Bild hochladen",
                     class: "bg-blue-600 text-white px-6 py-3 rounded-lg font-medium hover:bg-blue-700 transition" %>
   </div>
 
