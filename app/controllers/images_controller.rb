@@ -1,5 +1,5 @@
 class ImagesController < ApplicationController
-  before_action :set_image, only: %i[ show update destroy ]
+  before_action :set_image, only: %i[ show update destroy histogram ]
   def index
     @images = Image.all
   end
@@ -19,6 +19,16 @@ class ImagesController < ApplicationController
 
   def show
   end
+
+  def histogram
+    histogram = ImageHistogramService.new(@image.small_image).get_hist_array
+
+    render json: {
+      labels: (0..255).to_a,
+      data: histogram,
+    }
+  end
+
   def update
   end
   def destroy

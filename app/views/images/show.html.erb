@@ -1,34 +1,60 @@
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.5.1/dist/chart.umd.min.js"></script>
+
 <section class="text-gray-600 body-font overflow-hidden">
   <div class="container py-12 mx-auto">
-    <div class="lg:w-4/5 mx-auto flex flex-wrap">
-      <%= image_tag @image.small_image.variant(
-        resize_to_limit: [300, 300],
-        format: :webp,
-        saver: {
-          quality: 90,
-          subsample_mode: "off"
-        }
-      ), class: "lg:w-1/2 w-full lg:h-auto h-64 object-cover object-center rounded" %>
-      <div class="lg:w-1/2 w-full lg:pl-10 lg:py-6 mt-6 lg:mt-0">
-        <h2 class="text-sm title-font text-gray-500 tracking-widest"><%= @image.small_image.filename %></h2>
-        <h1 class="text-gray-900 text-3xl title-font font-medium mb-1">Originalbild verkleinert</h1>
+    <div class="flex gap-6">
+
+      <div style="flex: 0 0 300px;">
+        <%= image_tag @image.small_image.variant(
+          resize_to_limit: [300, 300],
+          format: :webp,
+          saver: { quality: 90, subsample_mode: "off" }
+        ), class: "rounded", style: "width: 100%; height: auto;" %>
       </div>
+
+      <div style="flex: 1; padding-left: 24px;">
+        <h2 class="text-sm title-font text-gray-500 tracking-widest">
+          <%= @image.small_image.filename %>
+        </h2>
+        <h1 class="text-gray-900 text-3xl title-font font-medium mb-1">
+          Originalbild verkleinert
+        </h1>
+      </div>
+
     </div>
   </div>
 </section>
+
 <section class="text-gray-600 body-font overflow-hidden">
   <div class="container py-12 mx-auto">
-    <div class="lg:w-4/5 mx-auto flex flex-wrap">
+    <div class="flex gap-6">
 
-      <%= image_tag @image.small_image.variant(
-        resize_to_limit: [300, 300],
-        format: :webp,
-        colourspace: "b-w"
-      ), class: "lg:w-1/2 w-full lg:h-auto h-64 object-cover object-center rounded" %>
-      <div class="lg:w-1/2 w-full lg:pl-10 lg:py-6 mt-6 lg:mt-0">
-        <h2 class="text-sm title-font text-gray-500 tracking-widest"><%= @image.small_image.filename %></h2>
-        <h1 class="text-gray-900 text-3xl title-font font-medium mb-1">Originalbild verkleinert Monochrom</h1>
+      <div style="flex: 0 0 300px;">
+        <%= image_tag @image.small_image.variant(
+          resize_to_limit: [300, 300],
+          format: :webp,
+          colourspace: "b-w",
+          saver: { quality: 90, subsample_mode: "off" }
+        ), class: "rounded", style: "width: 100%; height: auto;" %>
       </div>
+
+      <div style="flex: 1; padding-left: 24px;">
+        <h2 class="text-sm title-font text-gray-500 tracking-widest">
+          <%= @image.small_image.filename %>
+        </h2>
+        <h1 class="text-gray-900 text-3xl title-font font-medium mb-1">
+          Originalbild verkleinert Monochrom
+        </h1>
+
+        <canvas
+          data-controller="histogram"
+          data-histogram-image-id-value="<%= @image.id %>"
+          width="500"
+          height="300"
+          style="max-width: 100%; height: auto; display: block;">
+        </canvas>
+      </div>
+
     </div>
   </div>
 </section>
