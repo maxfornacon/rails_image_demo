@@ -21,7 +21,7 @@ class ImagesController < ApplicationController
   end
 
   def histogram
-    histogram = ImageHistogramService.new(@image.small_image).get_hist_array
+    histogram = ImageHistogramService.new(@image.attachment).get_hist_array
 
     render json: {
       labels: (0..255).to_a,
@@ -41,6 +41,6 @@ class ImagesController < ApplicationController
   end
 
   def image_params
-    params.expect(image: [:small_image])
+    params.expect(image: [:attachment])
   end
 end

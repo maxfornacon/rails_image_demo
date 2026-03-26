@@ -5,7 +5,7 @@
     <div class="flex gap-6">
 
       <div style="flex: 0 0 300px;">
-        <%= image_tag @image.small_image.variant(
+        <%= image_tag @image.attachment.variant(
           resize_to_limit: [300, 300, sharpen: false],
           format: :webp,
         ), class: "rounded", style: "width: 100%; height: auto;" %>
@@ -13,7 +13,7 @@
 
       <div style="flex: 1; padding-left: 24px;">
         <h2 class="text-sm title-font text-gray-500 tracking-widest">
-          <%= @image.small_image.filename %>
+          <%= @image.attachment.filename %>
         </h2>
         <h1 class="text-gray-900 text-3xl title-font font-medium mb-1">
           Originalbild verkleinert
@@ -29,7 +29,7 @@
     <div class="flex gap-6">
 
       <div style="flex: 0 0 300px;">
-        <%= image_tag @image.small_image.variant(
+        <%= image_tag @image.attachment.variant(
           resize_to_limit: [300, 300, sharpen: false],
           format: :webp,
           colourspace: "b-w",
@@ -38,7 +38,7 @@
 
       <div style="flex: 1; padding-left: 24px;">
         <h2 class="text-sm title-font text-gray-500 tracking-widest">
-          <%= @image.small_image.filename %>
+          <%= @image.attachment.filename %>
         </h2>
         <h1 class="text-gray-900 text-3xl title-font font-medium mb-1">
           Originalbild verkleinert Monochrom
