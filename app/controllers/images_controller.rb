@@ -1,7 +1,7 @@
 class ImagesController < ApplicationController
   before_action :set_image, only: %i[ show update destroy histogram ]
   def index
-    @images = Image.all
+    @images = Image.all.order(created_at: :desc)
   end
 
   def new
