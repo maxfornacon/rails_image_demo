@@ -16,8 +16,8 @@
               class: "inline-block bg-blue-600 text-white px-6 py-3 rounded-lg font-medium hover:bg-blue-700 transition" %>
 </div>
 
+<h3 class="text-xl font-semibold mb-10">Zuvor hochgeladene Bilder:</h3>
 <div class="flex justify-center">
-
   <div class="flex flex-wrap justify-center gap-4 max-w-5xl">
     <% @images.each do |i| %>
       <%= link_to image_path(i) do %>
