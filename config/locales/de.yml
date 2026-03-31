@@ -1,0 +1,8 @@
+de:
+  activerecord:
+    errors:
+      models:
+        image:
+          attributes:
+            attachment:
+              blank: "Bitte ein Bild auswählen"
