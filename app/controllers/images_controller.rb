@@ -1,5 +1,6 @@
 class ImagesController < ApplicationController
   before_action :set_image, only: %i[ show histogram ]
+
   def index
     @images = Image.all.order(created_at: :desc)
   end
@@ -36,6 +37,6 @@ class ImagesController < ApplicationController
   end
 
   def image_params
-    params.expect(image: [:attachment])
+    params.fetch(:image, {}).permit(:attachment)
   end
 end

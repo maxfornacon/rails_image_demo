@@ -14,6 +14,10 @@
         Kein Bild ausgewählt
       </p>
 
+      <% if form.object.errors.any? %>
+        <p class="error"><%= form.object.errors.full_messages.first %></p>
+      <% end %>
+
       <%= form.file_field :attachment,
                           accept: "image/*",
                           class: "hidden",
