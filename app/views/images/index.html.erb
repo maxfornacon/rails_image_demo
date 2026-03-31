@@ -20,14 +20,16 @@
 <div class="flex justify-center">
   <div class="flex flex-wrap justify-center gap-4 max-w-5xl">
     <% @images.each do |i| %>
-      <%= link_to image_path(i) do %>
-        <div class="w-32 sm:w-40 md:w-48 aspect-square overflow-hidden rounded-xl">
-          <%= image_tag i.attachment.variant(
-            resize_to_limit: [300, 300, sharpen: false],
-            format: :webp,
-            ), class: "w-full h-full object-cover hover:scale-105 transition" %>
-        </div>
-      <% end %>
+      <% if i.attachment.attached? %>
+        <%= link_to image_path(i) do %>
+          <div class="w-32 sm:w-40 md:w-48 aspect-square overflow-hidden rounded-xl">
+            <%= image_tag i.attachment.variant(
+              resize_to_limit: [300, 300, sharpen: false],
+              format: :webp,
+              ), class: "w-full h-full object-cover hover:scale-105 transition" %>
+          </div>
+        <% end %>
+      <%end  %>
     <% end %>
   </div>
 </div>

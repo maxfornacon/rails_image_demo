@@ -1,7 +1,6 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  filename: PictureOne
-
+PictureOne:
+  created_at: <%= Time.now %>
 two:
-  filename: PictureTwo
+  created_at: <%= Time.now %>

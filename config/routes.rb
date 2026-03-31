@@ -3,7 +3,7 @@ Rails.application.routes.draw do
 
   root "images#index"
 
-  resources :images do
+  resources :images, except: [:edit, :destroy, :update] do
     member do
       get :histogram
     end
