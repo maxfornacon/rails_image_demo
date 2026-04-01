@@ -6,18 +6,18 @@ See [Task.pdf](Task.pdf) for the full description.
 The application enables users to upload pictures. Each picture is then processed and displayed in two variants: a 
 smaller version and a grayscale version. For the latter, a histogram is also displayed.
 
-## 🚀 Tech Stack
+## Tech Stack
 - Ruby (4.0.2)
 - Rails (8.1.2.1)
 
-## 📋 Prerequisites
+## Prerequisites
 Ensure the following are installed:
 - Ruby
 - Rails
 - Bundler
 - [libvips](https://github.com/libvips/libvips?tab=readme-ov-file) (for image processing)
 
-## ⚙️ Setup Instructions
+## Setup Instructions
 
 ### 1. Clone the Repository
 ```
@@ -43,7 +43,7 @@ rails server
 
 After that visit: `http://localhost:3000`
 
-## 🧪 Running Tests
+## Running Tests
 ```
 rails test
 ```
