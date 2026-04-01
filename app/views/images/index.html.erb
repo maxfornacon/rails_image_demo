@@ -19,17 +19,21 @@
 <h3 class="text-xl font-semibold mb-10">Zuvor hochgeladene Bilder:</h3>
 <div class="flex justify-center">
   <div class="flex flex-wrap justify-center gap-4 max-w-5xl">
-    <% @images.each do |i| %>
-      <% if i.attachment.attached? %>
-        <%= link_to image_path(i) do %>
-          <div class="w-32 sm:w-40 md:w-48 aspect-square overflow-hidden rounded-xl">
-            <%= image_tag i.attachment.variant(
-              resize_to_limit: [300, 300, sharpen: false],
-              format: :webp,
-              ), class: "w-full h-full object-cover hover:scale-105 transition" %>
-          </div>
-        <% end %>
-      <%end  %>
+    <% if @images.length > 0 %>
+      <% @images.each do |i| %>
+        <% if i.attachment.attached? %>
+          <%= link_to image_path(i) do %>
+            <div class="w-32 sm:w-40 md:w-48 aspect-square overflow-hidden rounded-xl">
+              <%= image_tag i.attachment.variant(
+                resize_to_limit: [300, 300, sharpen: false],
+                format: :webp,
+                ), class: "w-full h-full object-cover hover:scale-105 transition" %>
+            </div>
+          <% end %>
+        <%end  %>
+      <% end %>
+    <% else %>
+    <p style="text-align: center">Noch keine Bilder vorhanden</p>
     <% end %>
   </div>
 </div>
