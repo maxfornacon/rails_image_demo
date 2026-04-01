@@ -37,4 +37,21 @@ class ImagesControllerTest < ActionDispatch::IntegrationTest
     get image_url(image)
     assert_response :success
   end
+
+  test "should get histogram" do
+    image = images(:PictureOne)
+    mock_histogram = Array.new(256) { rand(0..100) }
+
+    ImageHistogramService.define_singleton_method(:new) do |_attachment|
+      Struct.new(:get_hist_array).new(mock_histogram)
+    end
+
+    get histogram_image_url(image)
+
+    assert_response :success
+
+    json = JSON.parse(response.body)
+    assert_equal (0..255).to_a, json["labels"]
+    assert_equal mock_histogram, json["data"]
+  end
 end
